@@ -152,7 +152,10 @@ indicates great danger if it were in real situation. So more detailed work need 
 Next, I will try some other classfier or combined method to improve the accuracy and robustness, and have some adjustment in searching aeras strategies.
 
 
+### Reference
+[Udacity]https://github.com/udacity/CarND-Vehicle-Detection.git
 
+### change log
 
 
 
