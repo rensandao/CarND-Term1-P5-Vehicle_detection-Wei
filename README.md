@@ -18,7 +18,13 @@ The goals / steps of this project are the following:
 [image5]: ./output_images/scale1.png
 [image6]: ./output_images/scale2.png
 [image7]: ./output_images/scale3.png
-[image8]: ./output_images/windows_heat_final.png
+[image8]: ./output_images/win_heat_final_1.png
+[image12]: ./output_images/win_heat_final_2.png
+[image13]: ./output_images/win_heat_final_3.png
+[image14]: ./output_images/win_heat_final_4.png
+[image15]: ./output_images/win_heat_final_5.png
+[image16]: ./output_images/win_heat_final_6.png
+
 [image9]: ./output_images/find_car.png
 [image10]: ./output_images/final_img.png
 [image11]: ./output_images/img_in_video.png
@@ -92,6 +98,18 @@ Instead of using overlap, windows slided in term of cells per step, which is set
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image8]
+
+![alt text][image12]
+
+![alt text][image13]
+
+![alt text][image14]
+
+![alt text][image15]
+
+![alt text][image16]
+
+
 ---
 
 ### Video Implementation
