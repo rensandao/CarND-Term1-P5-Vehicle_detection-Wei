@@ -127,7 +127,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 The corresponding heatmaps can be seen above.
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
+### Here the resulting bounding boxes in six test images:
 ![alt text][image10]
 
 ### Here is the real effect map in the video:
