@@ -146,7 +146,7 @@ For Features Extraction and classifier training, to get different features for c
 In the section of slide window, choosing different scales size and search aeras also spent me a lot of time. And the result seems to be 
 uncertain. I guess I haven't set good parameter values and strategies.
 
-In [my video result](./project_video.mp4), Pipeline seems to fail recognizing and drawing boxes in some clip. This made me uneasy, as it 
+In [my video result](./project_video.mp4), `Pipeline` seems to fail recognizing and drawing boxes in some clip. This made me uneasy, as it 
 indicates great danger if it were in real situation. So more detailed work need to be done to improve the result.
 
 Next, I will try some other classfier or combined method to improve the accuracy and robustness, and have some adjustment in searching aeras strategies.
