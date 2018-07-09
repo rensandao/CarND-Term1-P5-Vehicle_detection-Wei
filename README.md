@@ -115,7 +115,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_out.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -146,7 +146,7 @@ For Features Extraction and classifier training, to get different features for c
 In the section of slide window, choosing different scales size and search aeras also spent me a lot of time. And the result seems to be 
 uncertain. I guess I haven't set good parameter values and strategies.
 
-In [my video result](./project_video.mp4), `Pipeline` seems to fail recognizing and drawing boxes in some clip. This made me uneasy, as it 
+In [my video result](./project_video_out.mp4), `Pipeline` seems to fail recognizing and drawing boxes in some clip. This made me uneasy, as it 
 indicates great danger if it were in real situation. So more detailed work need to be done to improve the result.
 
 Next, I will try some other classfier or combined method to improve the accuracy and robustness, and have some adjustment in searching aeras strategies.
