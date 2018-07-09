@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first step "Features Extraction" of the IPython notebook. 
+The code for this step is contained in the first step "1.Features Extraction" of the IPython notebook. 
 
 I started by reading in all the `vehicle` and `non-vehicle` images. The numbers of them were` 8792 vehicles` and `8968 non-vehicles` in respective. Basically, the dataset keep a balance. Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -59,7 +59,7 @@ I tried various combinations of parameters in color spaces and HOG paramenters f
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using HOG and color features. The code can be found in second step-"Classifier Traning". The parameters used `9 orientations 8 pixels per cell and 2 cells per block`. Feature vector length became `6108`. And the test accuracy of SVC came to `98.73%`.
+I trained a linear SVM using HOG and color features. The code can be found in second step "2.Classifier Traning". The parameters used `9 orientations 8 pixels per cell and 2 cells per block`. Feature vector length became `6108`. And the test accuracy of SVC came to `98.73%`.
 
 ### Sliding Window Search
 
@@ -117,6 +117,15 @@ The corresponding heatmaps can be seen above.
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further. 
 
+For Features Extraction and classifier training, to get different features for classifying, I applied three ways including spatial bins, color histograms and hog features. But parameter selection seems to be many trial and hard work. And the result cannot certainly becomes better as it can be suit for all cases. This is an uncertain place for me and I think I need to try more experiment and achieve some experience. 
+
+In the section of slide window, choosing different scales size and search aeras also spent me a lot of time. And the result seems to be 
+uncertain. I guess I haven't set good parameter values and strategies.
+
+In [my video result](./project_video.mp4), Pipeline seems to fail recognizing and drawing boxes in some clip. This made me uneasy, as it 
+indicates great danger if it were in real situation. So more detailed work need to be done to improve the result.
+
+Next, I will try some other classfier or combined method to improve the accuracy and robustness, and have some adjustment in searching aeras strategies.
 
 
 
