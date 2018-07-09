@@ -32,18 +32,26 @@ The goals / steps of this project are the following:
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook 
+The code for this step is contained in the first section `Features Extraction ` of the IPython notebook. 
 
-I started by reading in all the `vehicle` and `non-vehicle` images. The number of them is 8792 vehicles and 8968 non-vehicles in respective. Basically, the dataset keep a balance. Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+I started by reading in all the `vehicle` and `non-vehicle` images. The numbers of them were` 8792 vehicles` and `8968 non-vehicles` in respective. Basically, the dataset keep a balance. Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt text][image1]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+Then I took histogram in R,G,B channel respectively to see their features. Every single channel had different distribution which can be used to classify. Here are an example map:
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+![alt text][image3]
 
+![alt text][image4]
+
+I then explored different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like. 
+
+Here is an example with HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![alt text][image2]
+
+Then I defined those functions for features extraction. Among them, the function `color_hist` computes color histogram features. The function `bin_spatial` computes binned color features. The function `get_hog_features` returns HOG features and visualization. And `extract_features` combined all the functions above to augment data features.
+
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
