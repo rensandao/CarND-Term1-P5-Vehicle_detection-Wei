@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/scale3.png
 [image8]: ./output_images/windows_heat_final.png
 [image9]: ./output_images/find_car.png
-[image10]: ./output_images/final_car.png
+[image10]: ./output_images/final_img.png
 [image11]: ./output_images/img_in_video.png
 [video1]: ./project_video.mp4
 
@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first section `Features Extraction ` of the IPython notebook. 
+The code for this step is contained in the first step "Features Extraction" of the IPython notebook. 
 
 I started by reading in all the `vehicle` and `non-vehicle` images. The numbers of them were` 8792 vehicles` and `8968 non-vehicles` in respective. Basically, the dataset keep a balance. Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -55,43 +55,37 @@ Then I defined those functions for features extraction. Among them, the function
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
-`color space`
-`hog_channel`
-Hog detector 
+I tried various combinations of parameters in color spaces and HOG paramenters for extracting features and SVM classifier. YUV and YCrCb showed good effect, with a little variation. Considering the accuracy and real effect, I finally chose `YCrCb` color space. And orientation = 9, pix_per_cell = 8 and cell_per_block = (2,2). 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using HOG and color features. The code can be found in the section under the title “Train a classifier”. The parameters were 9 orientations 8 pixels per cell and 2 cells per block. Feature vector length became 6108. And the test accuracy of SVC came to 99.3%.
+I trained a linear SVM using HOG and color features. The code can be found in second step-"Classifier Traning". The parameters used `9 orientations 8 pixels per cell and 2 cells per block`. Feature vector length became `6108`. And the test accuracy of SVC came to `98.73%`.
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-In the section titled ‘Find cars in pictures ....’ , I defined a function `find_cars`, searching in a part of image in account of irrelative place such as sky and trees above the image. The searching district was decided by setting `ystart` and `ystop`. This can greatly reduce the
-amount of calculation and improve the accuray of detection.
+In the section titled ‘Find cars in images’ in third step , I defined a function `find_cars`, searching in a part of image in account of irrelative place such as sky and trees above the image. The searching district was decided by setting `ystart` and `ystop`. This can greatly reduce the amount of calculation and improve the accuray of detection.
 
-considering the varying far distance to other cars, the further a car,the smaller the window. I set three kinds of size to search a car. Here are three examples under size of 1.0, 1.5 and 2.0 in digital. 
+considering the varying far distance to other cars, the further a car,the smaller the window. I set three kind size of scales to search a car. Here are three examples under size of 1.0, 1.5, 2.0 in digital. 
 
-![alt text][image3]
+![alt text][image5]
 
-![alt text][image3]
+![alt text][image6]
 
-![alt text][image3]
-
-
-Instead of using overlap, windows slided in term of cells per step, which is set as 2.
-
-![alt text][image3]
+![alt text][image7]
 
 
-Heat map
+Instead of using overlap, windows slided in term of cells per step, which is set as 2. Here is an example for testing `find_cars`: 
+
+![alt text][image9]
+
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text][image8]
 ---
 
 ### Video Implementation
@@ -102,9 +96,10 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+I recorded the positions of positive detections in each frame of the video. From the positive detections I created a heatmap using function
+`add_heat` and then thresholded that map to identify vehicle positions using `apply_threshold`.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+Here's an example result showing the heatmap from a series of frames of video, the result of `label(heatmap)` and the bounding boxes then overlaid on the last frame of video:
 
 ### Here are six frames and their corresponding heatmaps:
 
