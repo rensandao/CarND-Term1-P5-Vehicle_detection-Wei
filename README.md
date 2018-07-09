@@ -69,10 +69,15 @@ In the section titled ‘Find cars in images’ in third step , I defined a func
 
 considering the varying far distance to other cars, the further a car,the smaller the window. I set three kind size of scales to search a car. Here are three examples under size of 1.0, 1.5, 2.0 in digital. 
 
+scale = 1.0
+
 ![alt text][image5]
+
+scale = 1.5
 
 ![alt text][image6]
 
+scale = 2.0
 ![alt text][image7]
 
 
