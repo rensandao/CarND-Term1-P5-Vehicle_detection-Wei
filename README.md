@@ -44,7 +44,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images. The numbers 
 
 ![alt text][image1]
 
-Then I took histogram in R,G,B channel respectively to see their features. Every single channel had different distribution which can be used to classify. Here are an example map:
+Then I took histogram in R,G,B channel respectively to see their features. Every single channel had different distribution which can be used to classify lately. Here are an example map:
 
 ![alt text][image3]
 
